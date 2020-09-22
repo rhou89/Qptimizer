@@ -1,0 +1,1 @@
+The test files contained in this folder come from the [Eleventh Max-SAT Evaluation or Max-SAT 2016](http://maxsat.ia.udl.cat/13/benchmarks/).

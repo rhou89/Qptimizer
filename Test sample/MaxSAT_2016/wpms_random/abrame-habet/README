@@ -1,0 +1,7 @@
+Authors: André Abramé and Djamal Habet, Aix-Marseille University, LSIS, CNRS, France.
+
+We have generated max2sat and max3sat random instances, both unweighted and weighted. We have increased progressively the number of variables and clauses of the instances of the MSE 2014 until reaching the limits of the current solvers (i.e. when no instance is solved by any solver). It gives us 3000 instances with a number of variables and clauses varying respectively from 120 to 200 and from 1200 to 2600 for the max2sat ones and respectively from 70 to 110 and from 700 to 1500 for the max3sat ones. 
+We have also generated maxcut crafted instances using the same methodology. The number of variables and clauses of these last instances varies from 140 to 220 and from 1200 to 1600.
+
+The generators are available at the follwing address:
+http://web.udl.es/usuaris/m4372594/jair-generators/
