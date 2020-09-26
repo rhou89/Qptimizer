@@ -27,6 +27,9 @@ class solver:
             import cpuinfo
         except ImportError:
             solver.packageInstall('py-cpuinfo')
+            print('Please run the program again!')
+            exit()
+
         
         uname = platform.uname()
         svmem = psutil.virtual_memory()
