@@ -2,13 +2,28 @@ import numpy as np
 
 from src.solver import solver
 from src.problem import problem
+
 class SimulatedAnnealing(solver):
-    def __init__(self):
-        pass
+    
+    def __init__(self, Scheme = 'Linear', Method = 'Sequential'):
+        self.setlinearScheme()
+        self.setflipMethod(Method)
 
-    @staticmethod
-    def solve(problem, annealingScheme = 'Linear'):
+    def setflipMethod(self, Method):
+        if Method == 'Sequential':
+            self.flipTrial = 'Sequential'
+        elif Method == 'Radom':
+            self.flipTrial = 'Radom'
+        else:
+            print('Set flip method failed, it can only be Sequential or Radom')
+    
+    def setAnnealingScheme(self, Scheme):
+        self.beta_list = Scheme
 
+    def setlinearScheme(self, beta_init=0, beta_max=5, beta_step=10000):
+        self.setAnnealingScheme(np.linspace(beta_init,beta_max,beta_step))
+
+    def solve(self, problem):
         print('='*40, 'Preprocessing', '='*40)
         num_spin = problem.num_spin
         edges = problem.edges
@@ -36,9 +51,14 @@ class SimulatedAnnealing(solver):
 
         # SA algorithm
         beta = beta_init
+        trialPool = list(range(num_spin))
         while beta < beta_max:
-            # sequential flip in this example
-            for target in range(num_spin):
+
+            # shuffle into random order if specified
+            if self.flipTrial == 'Radom':
+                np.random.shuffle(trialPool)
+
+            for target in trialPool:
                 eg_delta = si[nn[target]].dot(wg[target])*si[target]*2 # energy difference
                 
                 # Metropolis update
@@ -49,6 +69,6 @@ class SimulatedAnnealing(solver):
             # cooling down
             beta += beta_step
         
-        print('Done!')
+        print('Done')
         print(f'Solution found with energy {eg}')
         return si, eg

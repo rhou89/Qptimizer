@@ -14,7 +14,16 @@ if __name__ == '__main__':
     myProblem.get_info()
 
     # print system information to screen
+    # we record CPU and memory information for better benchmark results
     SA.getSysInfo()
 
-    # run SA to solve the problem
-    SA.solve(myProblem)
+    # create an instance for SA solver
+    mySA = SA()
+    # customize your solver
+    # the default setting is sequential flip
+    mySA.setflipMethod('Radom')
+    # the default annealing scheme is linear, but you can use any scheme by inputting beta in time sequence
+    beta_seq = [5*0.99**ii for ii in range(2000)]
+    mySA.setAnnealingScheme(beta_seq.reverse())
+    # run the solver to solve the problem
+    mySA.solve(myProblem)

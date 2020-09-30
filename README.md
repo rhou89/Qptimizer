@@ -4,6 +4,8 @@ This project aims to provide a *fair* benchmark result for a class of optimizers
 
 As the library of algorithms can be huge and the types of problems are versatile, we welcome all kinds of contributions from you.
 
+Feel free to use any code or data here for your project and/or research.
+
 ## Benchmark methodology
 For problems with known best solutions (planted problems), we use the following criteria to assess the performance of different algorithms:
 - Time-to-solution (TTS): the runtime required to find the best solution (with a probability 99% if it is heuristic algorithm).
