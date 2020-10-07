@@ -1,3 +1,5 @@
+# A simple demo about how to use and customize the SA solver to solve an Ising problem
+
 import numpy as np
 
 # user-defined libs
