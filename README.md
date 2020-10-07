@@ -21,6 +21,6 @@ For problems without known best solutions, we use similar quantity time-to-targe
   - Simulated annealing
   - Parallel tempering
 
-## Test sets
+## Problems sets
 - Random tile planting Ising model on periodic 2D square lattice
 - Max-SAT 2016 random test sets

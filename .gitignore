@@ -1,6 +1,7 @@
 # VS Code
 .vscode/
 
+# The following code is reused from
 # https://github.com/github/gitignore/blob/master/Python.gitignore
 
 # Byte-compiled / optimized / DLL files
