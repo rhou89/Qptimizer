@@ -12,13 +12,17 @@ For problems with known best solutions (planted problems), we use the following 
 
 For problems without known best solutions, we use similar quantity time-to-target (TTT) to assess the performance. The target could be the best known answer or some estimates.
 
-## Algorithms under test
+## Algorithms available
+### Available now
+- Monte Carlo methods (random walkers)
+  - Simulated annealing
+
+### Under development
 - Classical algorithms
   - Tabu search
 - Machine learning and neural network
   - Hopfield recurrent neural network
 - Monte Carlo methods (random walkers)
-  - Simulated annealing
   - Parallel tempering
 
 ## Problems sets
