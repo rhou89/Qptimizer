@@ -5,7 +5,7 @@ from src.problem import problem
 
 class SimulatedAnnealing(solver):
     
-    def __init__(self, Scheme = 'Linear', Method = 'Sequential'):
+    def __init__(self, Method = 'Sequential'):
         self.setlinearScheme()
         self.setflipMethod(Method)
 
@@ -43,16 +43,10 @@ class SimulatedAnnealing(solver):
         si = np.sign(np.random.random(num_spin)-0.5)
         # compute energy for initial state
         eg = sum(map(lambda x: -si[x[0]]*si[x[1]]*x[2], edges))
-        # use reciprocal temperature beta here
-        # linear annealing scheme in this example
-        beta_init = 0
-        beta_max = 5
-        beta_step = 0.001
 
         # SA algorithm
-        beta = beta_init
         trialPool = list(range(num_spin))
-        while beta < beta_max:
+        for beta in self.beta_list:
 
             # shuffle into random order if specified
             if self.flipTrial == 'Radom':
@@ -65,9 +59,6 @@ class SimulatedAnnealing(solver):
                 if eg_delta<0 or np.random.random()<np.exp(-eg_delta*beta):
                     si[target] = -si[target]
                     eg += eg_delta
-            
-            # cooling down
-            beta += beta_step
         
         print('Done')
         print(f'Solution found with energy {eg}')
