@@ -10,7 +10,7 @@ Feel free to use any code or data here for your project and/or research.
 For problems with known best solutions (planted problems), we use the following criteria to assess the performance of different algorithms:
 - Time-to-solution (TTS): the runtime required to find the best solution (with a probability 99% if it is heuristic algorithm).
 
-For problems without known best solutions, we compare the average runtime and the solution quality.
+For problems without known best solutions, we use similar quantity time-to-target (TTT) to assess the performance. The target could be the best known answer or some estimates.
 
 ## Algorithms under test
 - Classical algorithms
