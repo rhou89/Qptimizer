@@ -13,6 +13,8 @@ For problems with known best solutions (planted problems), we use the following 
 For problems without known best solutions, we use similar quantity time-to-target (TTT) to assess the performance. The target could be the best known answer or some estimates.
 
 ### Algorithms
+All the algorithm are benchmarked with the Python code we developed in the src folder, which makes sure that we care comparing "apples" to "apples". You are welcome to fork and use the source codes since all the algorithms have been published in some journals and/or preprints.
+
 #### Available now
 - Monte Carlo methods (random walkers)
   - Simulated annealing
@@ -25,6 +27,8 @@ For problems without known best solutions, we use similar quantity time-to-targe
   - Hopfield recurrent neural network
 
 ### Problems
+As there is "no free lunch", the benchmark results vary on different problems. The objective is to cover as many different problems as possible and the currently available test sets are listed on the following:
+
 - Random tile planting Ising model on periodic 2D square lattice
 - Max-SAT 2016 random test sets
 
