@@ -4,6 +4,7 @@ import numpy as np
 
 # user-defined libs
 from src.SA import SimulatedAnnealing as SA
+from src.PT import ParallelTempering as PT
 from src.problem import problem
 
 if __name__ == '__main__':
@@ -27,3 +28,7 @@ if __name__ == '__main__':
     beta_seq.reverse()
     mySA.setAnnealingScheme(beta_seq)
     mySA.solve(myProblem)
+
+    # The PT solver is similar to the SA solver
+    myPT = PT()
+    myPT.solve(myProblem)
