@@ -16,14 +16,13 @@ For problems without known best solutions, we use similar quantity time-to-targe
 #### Available now
 - Monte Carlo methods (random walkers)
   - Simulated annealing
+  - Parallel tempering
 
 #### Under development
 - Classical algorithms
   - Tabu search
 - Machine learning and neural network
   - Hopfield recurrent neural network
-- Monte Carlo methods (random walkers)
-  - Parallel tempering
 
 ### Problems
 - Random tile planting Ising model on periodic 2D square lattice
