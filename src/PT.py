@@ -1,7 +1,6 @@
 import numpy as np
 
 from src.solver import solver
-from src.problem import problem
 
 class ParallelTempering(solver):
 
@@ -34,9 +33,12 @@ class ParallelTempering(solver):
         # compute energy for initial state
         eg = [sum(map(lambda x: -ss[x[0]]*ss[x[1]]*x[2], edges)) for ss in si]
 
+        ans_eg = float('inf')
+        ans_si = []
+
         for _ in range(num_swps):
 
-            # Metroplis updates for each replica
+            # Metropolis updates for each replica
             for _ in range(10):
                 for ii in range(num_rep):
                     for flip in range(num_spin):
@@ -54,7 +56,12 @@ class ParallelTempering(solver):
                     si[ii], si[jj] = si[jj], si[ii]
                     eg[ii], eg[jj] = eg[jj], eg[ii]
 
+            for ii in range(num_rep):
+                if eg[ii] < ans_eg:
+                    ans_eg = eg[ii]
+                    ans_si = si[ii]
+            
         print('Done')
-        print(f'Solution found with energy {eg[-1]}')
+        print(f'Solution found with energy {ans_eg}')
 
-        return eg[-1], si[-1]
+        return ans_eg, ans_si
