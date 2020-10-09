@@ -13,7 +13,7 @@ For problems with known best solutions (planted problems), we use the following 
 For problems without known best solutions, we use similar quantity time-to-target (TTT) to assess the performance. The target could be the best known answer or some estimates.
 
 ### Algorithms
-All the algorithm are benchmarked with the Python code we developed in the src folder, which makes sure that we care comparing "apples" to "apples". You are welcome to fork and use the source codes since all the algorithms have been published in some journals and/or preprints.
+All the algorithm are benchmarked with the Python code we developed in the src folder, which makes sure that we are comparing "apples" to "apples". You are welcome to fork and use the source codes since all the algorithms have been published in some journals and/or preprints.
 
 #### Available now
 - Monte Carlo methods (random walkers)
