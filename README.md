@@ -23,9 +23,15 @@ All the algorithm are benchmarked with the Python code we developed in the src f
 #### Under development
 - Classical algorithms
   - Tabu search
+  - Evolutionary algorithm
+  - Ant colony optimization
+ 
 - Machine learning and neural network
   - Hopfield recurrent neural network
-
+  
+- Monte Carlo methods
+  - Population annealing
+  
 ### Problems
 As there is "no free lunch", the benchmark results vary on different problems. The objective is to cover as many different problems as possible and the currently available test sets are listed on the following:
 
