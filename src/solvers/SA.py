@@ -1,8 +1,9 @@
 import numpy as np
 
-from src.solver import solver
+from src.solvers.Solver import Solver
+from src.problems.Problem import Problem
 
-class SimulatedAnnealing(solver):
+class SimulatedAnnealing(Solver):
     
     def __init__(self, Method = 'Sequential'):
         self.setlinearScheme()

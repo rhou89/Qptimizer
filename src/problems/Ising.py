@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 '''
 The Ising class is a derived class from problem.
 One instance of the Ising class corresponds to a given Ising problem.
@@ -15,7 +17,10 @@ Variables:
     best_sol: store the best known solution to the problem
     best_config: store the corresponding spin configuration of the best known solution
 '''
-class Problem:
+
+from src.problems.Problem import Problem
+
+class Ising(Problem):
     def __init__(self):
         self.problem_type = 'Ising' # We support only Ising problem right now
         self.clear()

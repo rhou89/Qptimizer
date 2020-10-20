@@ -1,8 +1,9 @@
 import numpy as np
 
-from src.solver import solver
+from src.solvers.Solver import Solver
+from src.problems.Problem import Problem
 
-class ParallelTempering(solver):
+class ParallelTempering(Solver):
 
     def __init__(self):
         pass

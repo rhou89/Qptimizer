@@ -3,14 +3,14 @@
 import numpy as np
 
 # user-defined libs
-from src.SA import SimulatedAnnealing as SA
-from src.PT import ParallelTempering as PT
-from src.Problem import Problem
+from src.solvers.SA import SimulatedAnnealing as SA
+from src.solvers.PT import ParallelTempering as PT
+from src.problems.Ising import Ising
 
 if __name__ == '__main__':
 
     # The first step is to define your problem 
-    myProblem = Problem() # Create a problem instance
+    myProblem = Ising() # Create a problem instance
     myProblem.import_IsingChook(10, 1) # Import an Ising problem from predefined library
     myProblem.get_info() # Print problem information to screen. This is not necessary if you just want to try the solver out.
 

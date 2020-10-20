@@ -2,7 +2,7 @@ import platform
 import psutil
 import pip
 
-class solver:
+class Solver:
     def __init__(self):
         pass
 
@@ -26,7 +26,7 @@ class solver:
         try:
             import cpuinfo
         except ImportError:
-            solver.packageInstall('py-cpuinfo')
+            Solver.packageInstall('py-cpuinfo')
             print('Please run the program again!')
             exit()
 
@@ -34,7 +34,7 @@ class solver:
         uname = platform.uname()
         svmem = psutil.virtual_memory()
         ci = cpuinfo.get_cpu_info()
-        mem = solver.getBitSize(svmem.total)
+        mem = Solver.getBitSize(svmem.total)
 
         print('='*40, 'Computer Info', '='*40)
         print(f'System: {uname.system} - {uname.node} - {uname.machine}')

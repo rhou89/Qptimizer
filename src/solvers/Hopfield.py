@@ -1,9 +1,9 @@
 import numpy as np
 
-from src.solver import solver
-from src.Problem import Problem
+from src.solvers.Solver import Solver
+from src.problems.Problem import Problem
 
-class Hopfield(solver):
+class Hopfield(Solver):
 
     def __init__(self):
         # There are various models of HNN and we only support HTNN now
