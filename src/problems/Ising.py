@@ -56,6 +56,10 @@ class Ising(Problem):
         # clear any previous problem
         self.clear()
 
+        # define problem files
+        targetFolder = f'tile_planting_2D_L_{problem_size}_p1_0.2_p2_0.5_p3_0.1'
+        targetFile = f'{targetFolder}_inst_{instance}.txt'
+
         # read from file
         with open(f'data/Ising_chook/{targetFolder}/{targetFile}', 'r') as f:
             line = f.readline().split()
