@@ -1,5 +1,4 @@
 # A simple demo about how to use and customize the MCMC solvers to solve an Ising problem
-# 
 
 import numpy as np
 
@@ -15,7 +14,7 @@ if __name__ == '__main__':
     myProblem.import_IsingChook(10, 1) # Import an Ising problem from predefined library
     myProblem.get_info() # Print problem information to screen. This is not necessary if you just want to try the solver out.
 
-    # An optional step here is to print some system information to screen
+    # An optional step here is to print system information to screen
     SA.getSysInfo()  # We record CPU and memory information for better benchmark
 
     # The last step is to create an instance of your solver
@@ -25,9 +24,7 @@ if __name__ == '__main__':
     # You may also custermize the solver
     mySA.setflipMethod('Radom') # The default setting is sequential flip
     # The default annealing scheme is linear, but you can use any scheme by inputting beta in time sequence
-    beta_seq = [5*0.99**ii for ii in range(10000)]
-    beta_seq.reverse()
-    mySA.setAnnealingScheme(beta_seq)
+    mySA.setAnnealingScheme(reversed([5*0.99**ii for ii in range(10000)]))
     mySA.solve(myProblem)
 
     # The PT solver is similar to the SA solver
