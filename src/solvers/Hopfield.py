@@ -14,7 +14,8 @@ class Hopfield(Solver):
         np.random.seed()
 
         if self.method == 'HTNN':
-            self.HTNN(problem)
+            return self.HTNN(problem)
+        
 
     def HTNN(self, problem: Problem):
         num_spin = problem.num_spin
