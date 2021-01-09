@@ -13,4 +13,4 @@ does not work and may throw import error.
 ## Demo lists
 - *Demo_Ising.py*: tutorials on defining Ising problems.
 - *Demo_MCMC.py*: tutorials on customizing and using Markov chain Monte Carlo (MCMC) methods including simulate annealing (SA) and parallel tempering (PT).
-- *Demo_Hopfield.py*: tutorials on customizing and using various Hopfield neural network models.
+- *Demo_HNN.py*: tutorials on customizing and using various Hopfield neural network models.
