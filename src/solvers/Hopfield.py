@@ -21,8 +21,8 @@ class Hopfield(Solver):
         num_spin = problem.num_spin
         Ising_H = np.zeros([num_spin, num_spin])
         for edge in problem.edges:
-            Ising_H[edge[0],edge[1]] = edge[2]
-            Ising_H[edge[1],edge[0]] = edge[2]
+            Ising_H[edge[0],edge[1]] = problem.edges[edge]
+            Ising_H[edge[1],edge[0]] = problem.edges[edge]
 
         si = (np.random.rand(num_spin)-0.5)*2 # Initial random configuration
 

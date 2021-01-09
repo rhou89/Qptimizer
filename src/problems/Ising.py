@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-The Ising class is a derived class from problem.
-One instance of the Ising class corresponds to a given Ising problem.
-The class has the following members:
+The Ising class is a derived class from problem. One instance of the Ising class realizes a given Ising problem. We have made the following assumption that the spin variables are denoted from 0 to any positive integer. The Ising problem should form an undirected graph.
 
 Methods:
     __init__():
@@ -21,6 +19,7 @@ Variables:
 '''
 
 import os
+import sys
 
 from src.problems.Problem import Problem
 
@@ -28,17 +27,44 @@ class Ising(Problem):
     def __init__(self):
         self.problem_type = 'Ising'
         self.clear()
-
-    # Method: clear current problem
-    def clear(self):
-        self.edges = []
-        self.num_spin = 0
+    
+    # reset the best known solution
+    def clearBestSol(self):
         self.best_sol = None
         self.best_config = None
 
-    def addEdge(self, x1, x2, weight):
-        self.edges.append([x1, x2, weight])
+    # reset all problem-specific properties
+    def clear(self):
+        self.edges = {}
+        self.num_spin = 0
+        self.clearBestSol()
+    
+    # add a new edge into the problem
+    def addEdge(self, edge):
+        # format input
+        weight = self.checkNum(edge[-1])
+        nodes = sorted(self.checkAllInt(edge[:-1]))
 
+        # check input validity
+        if len(nodes) < 1:
+            sys.exit('To add an edge, a list of at least two elements is required.')
+        if nodes[0] < 0:
+            sys.exit('The nodes must be labelled from 0.')
+        
+        # add or update weight and number of spins
+        self.edges[tuple(nodes)] = weight
+        self.num_spin = max(self.num_spin, nodes[-1])
+
+        # Once the problem is modified, the best known solution becomes invalid
+        self.clearBestSol()
+    
+    # print the edge and its weight
+    def printProblem(self):
+        self.display('Problem Config')
+        for edge in self.edges:
+            print(edge, ':',  self.edges[edge])
+    
+    # get the path to a specific chook sample file
     def chookSamplePath(self, problem_size, instance):
         # file to be read
         targetFolder = f'tile_planting_2D_L_{problem_size}_p1_0.2_p2_0.5_p3_0.1'
@@ -48,8 +74,7 @@ class Ising(Problem):
         if os.path.isfile(problemPath) and os.path.isfile(energyPath):
             return problemPath, energyPath
 
-        print('The given chook data does not exist, please check again.')
-        return None, None
+        sys.exit('Can\'t find the problem data.')
 
     # import chook Ising problem
     def import_IsingChook(self, problem_size=4, instance=1):
@@ -64,7 +89,7 @@ class Ising(Problem):
         with open(f'data/Ising_chook/{targetFolder}/{targetFile}', 'r') as f:
             line = f.readline().split()
             while len(line)>1:
-                self.edges.append(list(map(int, line)))
+                self.addEdge(list(map(int, line)))
                 line = f.readline().split()
 
         # other updates
@@ -79,9 +104,9 @@ class Ising(Problem):
 
     # print problem information
     def get_info(self):
-        print('='*40, 'Problem Info', '='*40)
+        self.display('Problem Info')
         print(f'The problem is a/an {self.problem_type} type problem')
         print(f'Number of variables: {self.num_spin}')
         print(f'Number of coupling: {len(self.edges)}')
-        if self.best_sol != float('inf'):
+        if self.best_sol != None:
             print(f'This is planted problem with known best solution: {self.best_sol}')

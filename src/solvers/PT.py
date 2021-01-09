@@ -11,7 +11,9 @@ class ParallelTempering(Solver):
     def solve(self, problem):
         print('='*40, 'Preprocessing', '='*40)
         num_spin = problem.num_spin
-        edges = problem.edges
+        edges = []
+        for item in problem.edges:
+            edges.append(list(item)+[problem.edges[item]])
 
         nn = [[] for _ in range(num_spin)]
         wg = [[] for _ in range(num_spin)]
